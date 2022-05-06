@@ -1,20 +1,21 @@
-const express = require('express');
+const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const { logger, httpLoggerMidleware } = require("./logger/logger");
 
+const db = require("./src/models");
+
 const app = express();
 
- const corsOptions = {
-    origin: "*",
-  };
-  
-  app.use(cors(corsOptions));
- app.get("/", (req, res) => {
-    res.json({ message: "Welcome to template" });
-  });
+const corsOptions = {
+  origin: "*",
+};
+app.use(cors(corsOptions));
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to template" });
+});
 
-  const db = require("./src/models");
+app.use(httpLoggerMidleware);
 
 db.mongoose
   .connect(db.url, {
@@ -29,6 +30,7 @@ db.mongoose
     process.exit();
   });
 
- const PORT = process.env.PORT;
-    app.listen(PORT, () => {	console.log(`Server is running on port ${PORT}.`);
-    });
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});

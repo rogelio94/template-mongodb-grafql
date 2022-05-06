@@ -8,4 +8,5 @@ const Example = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Example", Example);
+const Example2 = (module.exports = mongoose.model("Example2", Example));
+module.exports = { Example2 };

@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 
-const Example2 = new Schema(
+const Example = new Schema(
   {
     name: String,
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Example2", Example2);
+const Example1 = (module.exports = mongoose.model("Example1", Example));
+module.exports = { Example1 };

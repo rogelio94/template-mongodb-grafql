@@ -1,14 +1,4 @@
-import exampleSchema from "./example";
-import example2Schema from "./example2";
-import { gql } from "apollo-server";
+const Example1 = require("./schema1");
+const Example2 = require("./schema2");
 
-const linkSchema = gql`
-  type Query {
-    _: Boolean
-  }
-  type Mutation {
-    _: Boolean
-  }
-`;
-
-export default [linkSchema, exampleSchema, example2Schema];
+module.exports = [schema1, schema2];
