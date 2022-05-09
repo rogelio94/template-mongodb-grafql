@@ -8,6 +8,7 @@
     "@babel/node": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "apollo-server": "^3.7.0",
+    "apollo-server-core": "^3.7.0",
     "apollo-server-express": "^3.7.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
